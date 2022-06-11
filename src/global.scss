@@ -101,6 +101,13 @@ p {
   font-family: SofiaProRegular;
 }
 
+/* Handle white space on Mac */
+ion-app {
+  width: 100vw;
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
 /* Manual Font-Face for MaterialIcons */
 @font-face {
   font-family: "Material Icons";
@@ -147,4 +154,37 @@ input::placeholder {
   .text-#{$i}px {
     font-size: #{$i + "px"};
   }
+}
+// padding top
+@for $i from 1 through 70 {
+  .margin-top-#{$i}px {
+    margin-top: #{$i + "px"};
+  }
+}
+
+// wrap long text inline
+.line-clamp-1 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+}
+
+
+// setting media query
+// sm
+@media only screen and (min-width: 640px) {
+
+}
+// md
+@media only screen and (min-width: 768px) {
+
+}
+// lg
+@media only screen and (min-width: 1024px) {
+
+}
+// xl
+@media only screen and (min-width: 1280px) {
+
 }

@@ -1,3 +1,64 @@
 
-<!--The content below is only a placeholder and can be replaced.-->
-<router-outlet></router-outlet>
+<div *ngIf="!isAuth else dashboard">
+  <router-outlet></router-outlet>
+</div>
+<ng-template #dashboard>
+  <!-- header -->
+  <div class="header">
+    <div class="header__brand">
+      <img src="../assets/imgs/iglooworks.svg" alt="headerLogoBrand">
+    </div>
+  </div>
+  <!-- body -->
+  <div class="margin-top-70px">
+    <!-- left content -->
+    <div [ngClass]="isSidebarCollapse ? 'sidebar--hide' : ''" class="sidebar">
+      <!-- sidebar profile -->
+      <div class="sidebar__profile">
+        <div class="sidebar__profile-avatar" initial-name="AA"></div>
+        <div class="sidebar__profile-desc">
+          <div class="sidebar__profile-desc-name line-clamp-1"># An Office Owner Account</div>
+          <div>Owner</div>
+        </div>
+      </div>
+      <!-- sidebar btn collapse -->
+      <div (click)="isSidebarCollapse = !isSidebarCollapse" class="sidebar__collapse">
+        <svg *ngIf="!isSidebarCollapse else btnExpandSidebar" style="margin-left: -2px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+        </svg>
+        <ng-template #btnExpandSidebar>
+          <svg style="margin-right: -1px;" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+          </svg>
+        </ng-template>
+      </div>
+      <!-- sidebar menu -->
+      <div class="sidebar__menu">
+        <a href="#" class="sidebar__menu-link sidebar__menu-link--active">Overview</a>
+        <a href="#" class="sidebar__menu-link">Departments</a>
+        <a href="#" class="sidebar__menu-link">Properties</a>
+        <a href="#" class="sidebar__menu-link">Map</a>
+        <a href="#" class="sidebar__menu-link">Access</a>
+        <a href="#" class="sidebar__menu-link">Users</a>
+        <a href="#" class="sidebar__menu-link">Jobs List</a>
+        <a href="#" class="sidebar__menu-link">My Profile</a>
+        <a href="#" class="sidebar__menu-link">Settings</a>
+        <a href="#" class="sidebar__menu-link">Support</a>
+        <a href="#" class="sidebar__menu-link">Log Out</a>
+      </div>
+      <!-- sidebar version -->
+      <div class="sidebar__version">V1.4.7</div>
+    </div>
+
+    <!-- right content -->
+    <div [ngClass]="isSidebarCollapse ? 'content--expand' : ''" class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</ng-template>
+
+<div *ngIf="componentId === 'local'" class="top-info">
+  <div class="top-info__content">
+    {{ componentFrom }}
+  </div>
+</div>

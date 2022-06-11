@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LoginPage } from './auth/login/login.page';
 
 const routes: Routes = [
   {
@@ -9,8 +8,8 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: '**',
-    redirectTo: '/login'
+    path: 'overview',
+    loadChildren: './overview/overview.module#OverviewPageModule',
   },
 ];
 
