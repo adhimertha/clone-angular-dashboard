@@ -1,0 +1,53 @@
+.igloo-button {
+  display: block;
+  background: #DADADA;
+  padding: 12px 22px;
+  font-size: 15px;
+  border-radius: 100px;
+  text-transform: uppercase;
+  color: #555555;
+  border: 2px solid #DADADA;
+  cursor: pointer;
+  transition: all 0.2s linear 0s;
+  outline: none;
+
+  &--green {
+    background-color: #00C99D;
+    border: 2px solid #00C99D;
+    color: #FFFFFF;
+  }
+  &--dark-green {
+    background-color: #159281;
+    border: 2px solid #159281;
+    color: #FFFFFF;
+    transition: all .3s linear;
+  }
+  &--dark-green:hover {
+    background-color: #13867B;
+    border-color: #13867B;
+  }
+}
+
+.igloo-button--block {
+  display: block;
+}
+.igloo-button--flex {
+  display: flex;
+}
+.igloo-button--inline-flex {
+  display: inline-flex;
+}
+.igloo-button--flex,
+.igloo-button--inline-flex {
+  align-items: center;
+  gap: 4px;
+}
+.igloo-button--full {
+  width: 100%;
+}
+
+@for $var from 50 to 301 {
+  .igloo-button--w-#{$var}px {
+    width: #{$var}px;
+  }
+}

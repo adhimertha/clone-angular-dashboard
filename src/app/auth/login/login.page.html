@@ -1,0 +1,47 @@
+
+<div class="login">
+  <div class="login__background"></div>
+  <div class="login__left">
+    <app-igloo-ui></app-igloo-ui>
+    <div class="login__left-title">Dashboard</div>
+  </div>
+
+  <div class="login__right">
+    <div class="login__right-lang">
+      <app-igloo-select-lang></app-igloo-select-lang>
+    </div>
+
+    <div class="login__right-form">
+      <label for="companyIDLogin" class="login__right-form-label">Organization Identification</label>
+      <input type="text" class="login__right-form-input" name="company_identification" id="companyIDLogin" placeholder="Type in organization identification">
+    </div>
+
+    <div class="login__right-form">
+      <label for="email" class="login__right-form-label">Email</label>
+      <input type="email" class="login__right-form-input" name="email" id="email" placeholder="Type in email">
+    </div>
+
+    <div class="login__right-form">
+      <label for="password" class="login__right-form-label">Password</label>
+      <input type="password" class="login__right-form-input" name="password" id="password" placeholder="Type in password">
+    </div>
+
+    <div class="link-green margin-top-25px">Forgot password?</div>
+    
+    <div class="login__right-button">
+      <app-igloo-button
+        type="submit"
+        id="loginButton"
+        color="dark-green"
+        display="block"
+      >
+        Login
+      </app-igloo-button>
+    </div>
+
+    <div class="login__right-ver margin-top-30px">
+      <div class="link-green">Download app</div>
+      <div class="text-white text-13px">v1.4.7</div>
+    </div>
+  </div>
+</div>

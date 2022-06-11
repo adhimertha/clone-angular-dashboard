@@ -1,0 +1,150 @@
+/* You can add global styles to this file, and also import other style files */
+@import "font-face";
+
+@include font-face(SofiaPro-Bold, "./assets/fonts/SofiaPro-Bold");
+@include font-face(SofiaProRegular, "./assets/fonts/SofiaProRegular");
+
+/* Custom & Component Style */
+$gray: #b2b2b2;
+$graySix: #666666;
+$grayFive: #333333;
+$grayOne: #000000;
+$grayBg: #eaeaea;
+$white: #ffffff;
+$darkBlue: #083451;
+$red: #ff6e6e;
+$green: #00c99d;
+$greenOpacity: #b2dfdb;
+
+* {
+  font-family: SofiaProRegular;
+  outline: none;
+  text-rendering: optimizeLegibility;
+  font-style: normal;
+  font-variant: normal;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+html,
+body {
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  display: inline-block;
+  padding-top: 10px;
+  font-weight: 500;
+  font-family: SofiaPro-Bold !important;
+  width: 100%;
+
+  @media all and (max-width: 320px) {
+    padding-top: 17px;
+  }
+}
+
+.h1 {
+  color: #1f1f1f;
+}
+
+h1 {
+  font-size: 40px;
+  @media only screen and (max-width: 320px) {
+    font-size: 27px;
+  }
+}
+
+h2 {
+  font-size: 24px;
+  font-family: SofiaProRegular !important;
+  @media only screen and (max-width: 320px) {
+    font-size: 14px;
+  }
+}
+
+h3 {
+  font-size: 20px;
+  @media only screen and (max-width: 320px) {
+    .right-content.widthIglooSelect.emailIglooSelect {
+      igloo-select {
+        .containerSelect {
+          width: 225px !important;
+
+          span {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: calc(100% - 30px);
+          }
+        }
+      }
+    }
+    font-size: 13px;
+  }
+}
+
+h4 {
+  font-size: 16px;
+  @media only screen and (max-width: 320px) {
+    font-size: 12px;
+  }
+}
+
+p {
+  font-size: 14px;
+  font-family: SofiaProRegular;
+}
+
+/* Manual Font-Face for MaterialIcons */
+@font-face {
+  font-family: "Material Icons";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./assets/fonts/MaterialIcons.woff2") format("woff2");
+}
+
+/* Reset Autofill Input Color (chrome) to be White */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 3000px white inset !important;
+  box-shadow: 0 0 0 3000px white inset !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+input::placeholder {
+  color: #777777;
+}
+
+.link-green {
+  color: #159281 !important;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  display: inline-block;
+  white-space: nowrap;
+}
+.link-green:hover {
+  text-decoration: underline !important;
+}
+
+.text-white {
+  color: #ffffff !important;
+}
+
+@for $i from 1 through 60 {
+  .margin-top-#{$i}px {
+    margin-top: #{$i + "px"};
+  }
+}
+@for $i from 1 through 60 {
+  .text-#{$i}px {
+    font-size: #{$i + "px"};
+  }
+}

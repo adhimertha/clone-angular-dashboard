@@ -1,0 +1,139 @@
+.login {
+  background-color: #083451;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow-y: auto;
+
+  @media only screen and (min-width: 768px) {
+    background-color: transparent;
+    flex-direction: row;
+    overflow-y: hidden;
+  }
+
+  &__left {
+    padding: 75px 40px 10px 40px;
+    box-sizing: border-box;
+    display: flex;
+    float: left;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100% !important;
+
+    // md
+    @media only screen and (min-width: 768px) {
+      padding: 30px 50px;
+      width: 50%;
+    }
+    // lg
+    @media only screen and (min-width: 1024px) {
+      padding: 30px 50px;
+    }
+
+    &-title {
+      margin-top: 0px;
+      font-weight: 400;
+      font-size: 30px;
+      color: #fff;
+
+      // md
+      @media only screen and (min-width: 768px) {
+        margin-top: 30px;
+        font-size: 50px;
+        color: #000;
+      }
+
+      // lg
+      @media only screen and (min-width: 1024px) {
+        font-size: 70px;
+      }
+    }
+  }
+
+  &__right {
+    padding: 20px 40px 30px 40px;
+    overflow-y: visible;
+    box-sizing: border-box;
+    width: 100% !important;
+    background-color: #083451;
+
+    // md
+    @media only screen and (min-width: 768px) {
+      padding: 40px 40px 30px 40px;
+      overflow-y: auto;
+      width: 50%;
+    }
+
+    // lg
+    @media only screen and (min-width: 1024px) {
+      padding: 40px 70px 30px 70px;
+    }
+
+    &-button {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 10px;
+    }
+
+    &-lang {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+      margin-bottom: 40px;
+
+      @media only screen and (min-width: 768px) {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 10px;
+        margin-bottom: 40px;
+      }
+    }
+
+    &-form {
+      margin-top: 25px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      &-label {
+        text-transform: uppercase;
+        font-size: 14px;
+        font-weight: 600;
+        color: #fff;
+      }
+
+      &-input {
+        padding: 12px 25px;
+        min-height: 54px;
+        box-sizing: border-box;
+        border-radius: 9999px;
+        font-size: 16px;
+        border: none;
+        // border: 1px solid #159281;
+
+        &::placeholder {
+          color: #bababa;
+        }
+      }
+    }
+
+    &-ver {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+  
+  &__background {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    position: fixed;
+    transform: scaleX(-1);
+    opacity: 0.3;
+    background: url(/assets/imgs/css-assets/designed_value.png) no-repeat scroll 50%;
+    background-size: cover;
+    z-index: -1;
+  }
+}

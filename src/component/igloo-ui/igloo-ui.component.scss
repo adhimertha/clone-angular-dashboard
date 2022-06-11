@@ -1,0 +1,33 @@
+.igloo-ui {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+  &__svg {
+    fill: #fff;
+    width: 100% !important;
+
+    // md
+    @media only screen and (min-width: 768px) {
+      fill: #00263f;
+    }
+  }
+
+  &__title {
+    margin-top: 30px;
+    font-weight: 900;
+    white-space: nowrap;
+    text-transform: uppercase;
+    font-size: 30px;
+    color: #fff;
+    display: none;
+
+    // md
+    @media only screen and (min-width: 768px) {
+      color: #00263f;
+      display: block;
+    }
+  }
+}
