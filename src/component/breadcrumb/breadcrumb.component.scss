@@ -1,0 +1,19 @@
+.breadcrumb {
+  display: flex;
+  align-items: center;
+
+  &__link {
+    color: #039c7b;
+    font-size: 14px;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__divider {
+    margin: 0 10px;
+    color: #039c7b;
+  }
+}

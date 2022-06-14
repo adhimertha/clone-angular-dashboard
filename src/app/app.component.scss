@@ -19,7 +19,7 @@
     padding: 5px 20px;
     background: #dadada;
     color: #333333;
-    font-weight: bold;
+    font-family: SofiaPro-bold !important;
     float: left;
   }
 
@@ -42,17 +42,54 @@
   padding: 0 30px;
   z-index: 2;
 
-  @media only screen and (min-width: 1024px) {
+  // md
+  @media only screen and (min-width: 768px) {
     justify-content: flex-start;
   }
 
+  // logo brand
   &__brand {
     width: 122px;
+    padding-left: 0;
 
     img {
       width: 100%;
       height: 100%;
       object-fit: contain;
+    }
+
+    // md
+    @media only screen and (min-width: 768px) {
+      padding-left: 30px;
+    }
+    // lg
+    @media only screen and (min-width: 1024px) {
+      padding-left: 0;
+    }
+  }
+
+  // button burger sidebar
+  &__button-toggle {
+    position: absolute;
+    display: block;
+    top: 50%;
+    left: 20px;
+    width: 25px;
+    height: 25px;
+    color: #159281;
+    cursor: pointer;
+    transform: translateY(-50%);
+    z-index: 3;
+
+    // lg
+    @media only screen and (min-width: 1024px) {
+      display: none;
+    }
+
+    svg {
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
     }
   }
 }
@@ -60,26 +97,34 @@
 // sidebar
 .sidebar {
   position: absolute;
+  display: none;
+  top: 0;
   left: 0;
   bottom: 0;
   float: left;
-  max-height: calc(100vh - 70px);
-  display: none;
+  max-height: 100vh;
   flex-direction: column;
   height: 100%;
   width: 195px;
   background: #205171;
   color: #fff;
-  z-index: 2;
+  z-index: 5;
   transition: left 0.3s ease-in-out;
 
   // lg
   @media only screen and (min-width: 1024px) {
+    top: auto;
     display: flex;
+    max-height: calc(100vh - 70px);
   }
 
-  // sidebar closed
-  &--hide {
+  // sidebar open on mobile
+  &--open {
+    display: flex !important;
+  }
+
+  // sidebar collapse
+  &--collapse {
     left: -170px;
 
     & > .sidebar__profile,
@@ -90,10 +135,49 @@
     }
   }
 
+  // fade effect
+  &__fade-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 3;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  // button close on small window
+  &__button-close {
+    position: absolute;
+    display: block;
+    top: 0;
+    right: 0;
+    width: 24px;
+    height: 24px;
+    color: #159281;
+    transform: translate(150%, 130%);
+    cursor: pointer;
+    z-index: 3;
+
+    // lg
+    @media only screen and (min-width: 1024px) {
+      display: none;
+    }
+
+    svg {
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+  }
+
   // sidebar btn toggle collapse
   &__collapse {
     position: absolute;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
@@ -107,6 +191,11 @@
     transform: translate(50%, -50%);
     border: 1px solid #929292;
     background: #fff;
+
+    // lg
+    @media only screen and (min-width: 1024px) {
+      display: flex;
+    }
 
     svg {
       width: 90%;
@@ -151,7 +240,7 @@
 
       &-name {
         font-size: 14px;
-        font-weight: bold;
+        font-family: SofiaPro-bold !important;
         margin-bottom: -2px;
       }
     }
@@ -187,8 +276,8 @@
     text-decoration: none;
     color: #fff;
     font-size: 14px;
-    font-weight: bold;
-    padding: 9px 20px;
+    padding: 9px 25px;
+    cursor: pointer;
     border-bottom: #999794 1px solid;
     transition: background-color 0.3s ease-in-out;
 
@@ -223,8 +312,27 @@
     }
 
     &--child {
-      padding-left: 30px !important;
+      font-weight: normal !important;
+      padding-left: 35px !important;
       border-bottom: none !important;
+    }
+  }
+  &__menu-dropdown {
+    border-bottom: #999794 1px solid;
+  }
+
+  &__menu-toggle {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+
+    svg {
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
     }
   }
 }
@@ -237,6 +345,9 @@
   min-height: 100vh;
   height: 100%;
   float: right;
+  box-sizing: border-box;
+  padding: 25px 40px;
+  background-color: #f7f4f0;
   transition: width 0.3s ease-in-out;
   z-index: 1;
 
