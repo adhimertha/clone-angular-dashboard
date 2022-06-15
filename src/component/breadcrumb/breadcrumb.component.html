@@ -1,0 +1,13 @@
+<div class="breadcrumb">
+  <ng-container *ngIf="data.parents">
+    <ng-container *ngFor="let parent of data.parents; let i = index">
+      <div (click)="util.redirectLink(parent.url)" class="breadcrumb__link">
+        {{ parent.title }}
+      </div>
+      <div class="breadcrumb__divider">/</div>
+    </ng-container>
+  </ng-container>
+  <div (click)="util.refreshPage()" class="breadcrumb__link text-bold">
+    {{ data.title }}
+  </div>
+</div>

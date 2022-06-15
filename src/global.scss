@@ -145,6 +145,10 @@ input::placeholder {
   color: #ffffff !important;
 }
 
+.text-bold {
+  font-family: SofiaPro-bold !important;
+}
+
 @for $i from 1 through 60 {
   .margin-top-#{$i}px {
     margin-top: #{$i + "px"};
@@ -170,21 +174,16 @@ input::placeholder {
   display: inline-block;
 }
 
-
 // setting media query
 // sm
 @media only screen and (min-width: 640px) {
-
 }
 // md
 @media only screen and (min-width: 768px) {
-
 }
 // lg
 @media only screen and (min-width: 1024px) {
-
 }
 // xl
 @media only screen and (min-width: 1280px) {
-
 }

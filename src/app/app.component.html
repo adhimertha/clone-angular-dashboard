@@ -7,11 +7,27 @@
     <div class="header__brand">
       <img src="../assets/imgs/iglooworks.svg" alt="headerLogoBrand" />
     </div>
+    <!-- button toggle sidebar on small window -->
+    <div (click)="isSidebarOpen = !isSidebarOpen" class="header__button-toggle">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+      >
+        <path fill="none" d="M0 0h24v24H0z" />
+        <path d="M18 18v2H6v-2h12zm3-7v2H3v-2h18zm-3-7v2H6V4h12z" />
+      </svg>
+    </div>
   </div>
+
   <!-- body -->
   <div class="margin-top-70px">
     <!-- left content -->
-    <div [ngClass]="isSidebarCollapse ? 'sidebar--hide' : ''" class="sidebar">
+    <div
+      [ngClass]="isSidebarCollapse ? 'sidebar--collapse' : ''"
+      [class]="isSidebarOpen ? 'sidebar--open' : ''"
+      class="sidebar"
+    >
       <!-- sidebar profile -->
       <div class="sidebar__profile">
         <div class="sidebar__profile-avatar" initial-name="AA"></div>
@@ -58,26 +74,88 @@
       </div>
       <!-- sidebar menu -->
       <div class="sidebar__menu">
-        <a href="#" class="sidebar__menu-link sidebar__menu-link--active"
-          >Overview</a
+        <div class="sidebar__menu-link text-bold sidebar__menu-link--active">
+          Overview
+        </div>
+        <div class="sidebar__menu-link text-bold">Departments</div>
+        <div class="sidebar__menu-link text-bold">Properties</div>
+        <div class="sidebar__menu-link text-bold">Map</div>
+        <div class="sidebar__menu-link text-bold">Access</div>
+        <div class="sidebar__menu-link text-bold">Users</div>
+        <div class="sidebar__menu-link text-bold">Jobs List</div>
+        <div class="sidebar__menu-link text-bold">My Profile</div>
+        <div
+          (click)="appPages[0].open = !appPages[0].open"
+          class="sidebar__menu-link text-bold"
         >
-        <a href="#" class="sidebar__menu-link">Departments</a>
-        <a href="#" class="sidebar__menu-link">Properties</a>
-        <a href="#" class="sidebar__menu-link">Map</a>
-        <a href="#" class="sidebar__menu-link">Access</a>
-        <a href="#" class="sidebar__menu-link">Users</a>
-        <a href="#" class="sidebar__menu-link">Jobs List</a>
-        <a href="#" class="sidebar__menu-link">My Profile</a>
-        <a href="#" class="sidebar__menu-link">Settings</a>
-        <a href="#" class="sidebar__menu-link sidebar__menu-link--child"
-          >Security</a
-        >
-        <a href="#" class="sidebar__menu-link">Support</a>
-        <a href="#" class="sidebar__menu-link">Log Out</a>
+          {{ appPages[0].title }}
+          <div class="sidebar__menu-toggle">
+            <svg
+              *ngIf="appPages[0].open === false"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            <svg
+              *ngIf="appPages[0].open === true"
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </div>
+        </div>
+        <div *ngIf="appPages[0].open === true" class="sidebar__menu-dropdown">
+          <div
+            *ngFor="let p of appPages[0].children; let i = index"
+            class="sidebar__menu-link text-bold sidebar__menu-link--child"
+          >
+            {{ p.title }}
+          </div>
+        </div>
+        <div class="sidebar__menu-link text-bold">Support</div>
+        <div class="sidebar__menu-link text-bold">Log Out</div>
       </div>
       <!-- sidebar version -->
       <div class="sidebar__version">V1.4.7</div>
+
+      <!-- close button sidebar small window -->
+      <div
+        (click)="isSidebarOpen = !isSidebarOpen"
+        class="sidebar__button-close"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+            clip-rule="evenodd"
+          />
+        </svg>
+      </div>
     </div>
+
+    <!-- sidebar fade effect -->
+    <div
+      *ngIf="isSidebarOpen"
+      (click)="isSidebarOpen = !isSidebarOpen"
+      class="sidebar__fade-effect"
+    ></div>
 
     <!-- right content -->
     <div [ngClass]="isSidebarCollapse ? 'content--expand' : ''" class="content">
