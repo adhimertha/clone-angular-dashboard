@@ -74,10 +74,24 @@
       </div>
       <!-- sidebar menu -->
       <div class="sidebar__menu">
-        <div class="sidebar__menu-link text-bold sidebar__menu-link--active">
+        <div
+          [ngClass]="
+            activeUrl == '/overview' ? 'sidebar__menu-link--active' : ''
+          "
+          [routerLink]="'overview'"
+          class="sidebar__menu-link text-bold"
+        >
           Overview
         </div>
-        <div class="sidebar__menu-link text-bold">Departments</div>
+        <div
+          [ngClass]="
+            activeUrl == '/department' ? 'sidebar__menu-link--active' : ''
+          "
+          [routerLink]="'department'"
+          class="sidebar__menu-link text-bold"
+        >
+          Departments
+        </div>
         <div class="sidebar__menu-link text-bold">Properties</div>
         <div class="sidebar__menu-link text-bold">Map</div>
         <div class="sidebar__menu-link text-bold">Access</div>
