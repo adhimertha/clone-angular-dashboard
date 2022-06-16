@@ -6,6 +6,8 @@ import { AppComponent } from "./app.component";
 import { AuthModule } from "./auth/auth.module";
 import { ShareModule } from "./share.module";
 import { RouterModule } from "@angular/router";
+import { NgxsModule } from "@ngxs/store";
+import { AuthState } from "./auth/auth.state";
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,6 +17,7 @@ import { RouterModule } from "@angular/router";
     AuthModule,
     ShareModule,
     RouterModule,
+    NgxsModule.forRoot([AuthState]),
   ],
   providers: [],
   bootstrap: [AppComponent],

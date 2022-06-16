@@ -1,3 +1,10 @@
+export interface User {
+  name: string;
+  email: string;
+  username: string;
+  password: string;
+}
+
 export interface SideMenuList {
   title: string;
   url: string;

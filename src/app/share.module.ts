@@ -5,6 +5,7 @@ import { IglooSelectLangComponent } from "src/component/igloo-select-lang/igloo-
 import { IglooButtonComponent } from "src/component/igloo-button/igloo-button.component";
 import { BreadcrumbComponent } from "src/component/breadcrumb/breadcrumb.component";
 import { RouterModule } from "@angular/router";
+import { LoginFormComponent } from "src/component/login-form/login-form.component";
 
 @NgModule({
   imports: [RouterModule, CommonModule],
@@ -13,12 +14,14 @@ import { RouterModule } from "@angular/router";
     IglooSelectLangComponent,
     IglooButtonComponent,
     BreadcrumbComponent,
+    LoginFormComponent,
   ],
   exports: [
     IglooUiComponent,
     IglooSelectLangComponent,
     IglooButtonComponent,
     BreadcrumbComponent,
+    LoginFormComponent,
   ],
 })
 export class ShareModule {}

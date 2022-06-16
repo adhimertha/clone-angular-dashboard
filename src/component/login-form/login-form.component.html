@@ -1,0 +1,58 @@
+<div class="login-form">
+  <div class="form-group">
+    <label for="companyIDLogin" class="form-group__label"
+      >Organization Identification</label
+    >
+    <input
+      [attr.autocomplate]="autocompleteStatus"
+      [value]="defaultCompanyId"
+      (input)="setCompanyIdData($event.target.value)"
+      (keyup.enter)="(submit)"
+      type="text"
+      class="form-group__input"
+      name="company_identification"
+      id="companyIDLogin"
+      placeholder="Type in organization identification"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="email" class="form-group__label">Email</label>
+    <input
+      [attr.autocomplate]="autocompleteStatus"
+      [value]="defaultUsername"
+      type="email"
+      class="form-group__input"
+      name="email"
+      id="email"
+      placeholder="Type in email"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="password" class="form-group__label">Password</label>
+    <input
+      [attr.autocomplate]="autocompleteStatus"
+      [value]="defaultPassword"
+      type="password"
+      class="form-group__input"
+      name="password"
+      id="password"
+      placeholder="Type in password"
+    />
+  </div>
+
+  <div class="link-green margin-top-25px">Forgot password?</div>
+
+  <div class="login-form__button">
+    <app-igloo-button
+      type="submit"
+      id="loginButton"
+      color="dark-green"
+      display="block"
+      (click)="(submit)"
+    >
+      Login
+    </app-igloo-button>
+  </div>
+</div>
