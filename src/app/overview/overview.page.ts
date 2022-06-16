@@ -15,18 +15,8 @@ export class OverviewPage implements OnInit {
 
   setBreadcrumbData() {
     this.breadcrumbData = {
-      parents: [
-        {
-          title: "Overview",
-          url: "/overview",
-        },
-        {
-          title: "Settings",
-          url: "/settings",
-        },
-      ],
-      title: "Dashboard Audit",
-      url: "/dashboard-audit",
+      title: "Overview",
+      url: "/overview",
     };
   }
 

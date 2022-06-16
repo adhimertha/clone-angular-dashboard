@@ -11,6 +11,10 @@ const routes: Routes = [
     path: "overview",
     loadChildren: "./overview/overview.module#OverviewPageModule",
   },
+  {
+    path: "department",
+    loadChildren: "./department/department.module#DepartmentPageModule",
+  },
 ];
 
 @NgModule({

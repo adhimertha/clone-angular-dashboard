@@ -1,5 +1,5 @@
 import { Component, HostListener } from "@angular/core";
-import { NavigationStart, Router } from "@angular/router";
+import { NavigationEnd, NavigationStart, Router } from "@angular/router";
 import { SideMenu } from "./interfaces";
 import { UtilService } from "./util.service";
 
@@ -15,6 +15,8 @@ export class AppComponent {
   public isSidebarCollapse = false;
   public isSidebarOpen = false;
   public appPages: SideMenu[];
+  public currentUrlAddr = "/overview";
+  public activeUrl = this.currentUrlAddr;
 
   hideMenuController() {
     if (window.innerWidth > 0) {
@@ -30,6 +32,13 @@ export class AppComponent {
   constructor(public util: UtilService, private router: Router) {
     this.initializeApp();
     this.checkAuth();
+    this.urlCondition();
+
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.urlCondition();
+      }
+    });
   }
 
   checkAuth() {
@@ -107,5 +116,24 @@ export class AppComponent {
         ],
       },
     ];
+  }
+
+  getFirstURLSegment(url: string) {
+    return "/" + url.split("/")[1];
+  }
+
+  urlCondition() {
+    if (!!this.router.routerState.snapshot.root.firstChild) {
+      this.currentUrlAddr =
+        "/" + this.router.routerState.snapshot.root.firstChild.routeConfig.path;
+    }
+
+    if (this.currentUrlAddr !== window.location.pathname) {
+      if (this.currentUrlAddr.length < window.location.pathname.length) {
+        this.currentUrlAddr = window.location.pathname;
+      }
+    }
+    this.activeUrl = "/" + this.currentUrlAddr.split("/")[1];
+    console.log(this.activeUrl == "/overview");
   }
 }
