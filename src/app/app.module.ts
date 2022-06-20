@@ -8,6 +8,18 @@ import { ShareModule } from "./share.module";
 import { RouterModule } from "@angular/router";
 import { NgxsModule } from "@ngxs/store";
 import { AuthState } from "./auth/auth.state";
+import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
+import { HttpClient, HttpClientModule } from "@angular/common/http";
+import { TranslateHttpLoader } from "@ngx-translate/http-loader";
+
+export function HttpLoaderFactory(http: HttpClient) {
+  const dateUnixTimestamp = new Date().getTime();
+  return new TranslateHttpLoader(
+    http,
+    "./assets/i18n/",
+    `.json?t=${dateUnixTimestamp}`
+  );
+}
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,6 +30,15 @@ import { AuthState } from "./auth/auth.state";
     ShareModule,
     RouterModule,
     NgxsModule.forRoot([AuthState]),
+
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      },
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],

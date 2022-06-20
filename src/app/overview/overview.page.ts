@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Breadcrumb } from "../interfaces";
+import { UtilService } from "../util.service";
 
 @Component({
   selector: "app-overview",
@@ -9,7 +10,7 @@ import { Breadcrumb } from "../interfaces";
 export class OverviewPage implements OnInit {
   public breadcrumbData: Breadcrumb;
 
-  constructor() {
+  constructor(public util: UtilService) {
     this.setBreadcrumbData();
   }
 

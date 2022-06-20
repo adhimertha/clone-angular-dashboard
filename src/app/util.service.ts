@@ -6,11 +6,11 @@ import { TranslateService } from "@ngx-translate/core";
   providedIn: "root",
 })
 export class UtilService {
-  constructor(private router?: Router) {} // private translate?: TranslateService,
+  constructor(private translate?: TranslateService, private router?: Router) {} //
 
-  // translating(param: any, option?: any) {
-  //   return this.translate.instant(param, option);
-  // }
+  translating(param: any, option?: any) {
+    return this.translate.instant(param, option);
+  }
 
   refreshPage() {
     window.location.reload();
