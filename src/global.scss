@@ -182,6 +182,10 @@ input::placeholder {
   display: inline-block;
 }
 
+.relative {
+  position: relative;
+}
+
 .custom-scrollbar {
   /* Scroll */
   &::-webkit-scrollbar {

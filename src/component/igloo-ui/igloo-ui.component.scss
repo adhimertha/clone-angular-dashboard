@@ -1,4 +1,5 @@
-.igloo-ui {
+// ui login leftside
+.igloo-ui-login {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -29,5 +30,27 @@
       color: #00263f;
       display: block;
     }
+  }
+}
+
+// ui error box
+.igloo-ui-error-box {
+  background: #f5dada;
+  padding: 10px 10px;
+  border-radius: 6px;
+  align-items: center;
+  display: flex;
+  gap: 10px;
+
+  &__svg {
+    width: 24px;
+    height: 24px;
+    color: #ea8558;
+  }
+
+  &__message {
+    font-size: 15px;
+    color: #555555;
+    line-height: 0;
   }
 }

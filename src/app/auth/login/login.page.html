@@ -1,12 +1,12 @@
 <div class="login">
   <div class="login__background"></div>
   <div class="login__left">
-    <app-igloo-ui></app-igloo-ui>
-    <div class="login__left-title">Dashboard</div>
+    <app-igloo-ui uiType="igloo-ui-login-leftside"></app-igloo-ui>
+    <div class="login__left__title">Dashboard</div>
   </div>
 
   <div class="login__right">
-    <div class="login__right-lang">
+    <div class="login__right__lang">
       <app-igloo-select-lang></app-igloo-select-lang>
     </div>
 
@@ -14,12 +14,12 @@
       [defaultUsername]="defaultUsername"
       [defaultPassword]="defaultPassword"
       [defaultCompanyId]="defaultCompanyId"
-      [isInLoading]="showLoading"
+      [isLoading]="isLoading"
       [autocompleteStatus]="'off'"
       (submit)="submit($event)"
     ></app-login-form>
 
-    <div class="login__right-ver margin-top-30px">
+    <div class="login__right__ver margin-top-30px">
       <div class="link-green">Download app</div>
       <div class="text-white text-13px">v1.4.7</div>
     </div>

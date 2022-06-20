@@ -31,7 +31,7 @@
       padding: 30px 50px;
     }
 
-    &-title {
+    &__title {
       margin-top: 0px;
       font-weight: 400;
       font-size: 30px;
@@ -70,7 +70,7 @@
       padding: 40px 70px 30px 70px;
     }
 
-    &-lang {
+    &__lang {
       display: flex;
       justify-content: center;
       margin-top: 10px;
@@ -84,7 +84,7 @@
       }
     }
 
-    &-ver {
+    &__ver {
       display: flex;
       justify-content: space-between;
       align-items: center;
