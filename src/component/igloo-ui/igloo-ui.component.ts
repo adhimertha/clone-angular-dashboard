@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-igloo-ui',
-  templateUrl: './igloo-ui.component.html',
-  styleUrls: ['./igloo-ui.component.scss']
+  selector: "app-igloo-ui",
+  templateUrl: "./igloo-ui.component.html",
+  styleUrls: ["./igloo-ui.component.scss"],
 })
 export class IglooUiComponent implements OnInit {
+  @Input() uiType = "";
 
-  constructor() { }
+  /** For uiType === igloo-ui-error-box */
+  @Input() errorMessage = "";
 
-  ngOnInit() {
-  }
+  constructor() {}
 
+  ngOnInit() {}
 }

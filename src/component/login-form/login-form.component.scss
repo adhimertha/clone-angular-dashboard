@@ -12,16 +12,34 @@
   }
 
   &__input {
+    width: 100%;
     padding: 12px 25px;
     min-height: 54px;
     box-sizing: border-box;
     border-radius: 9999px;
     font-size: 16px;
     border: none;
+    box-sizing: border-box;
+    border: 2px solid transparent;
+
+    &[igloo-input-error="true"] {
+      border: 2px solid #ea8558;
+    }
 
     &::placeholder {
       color: #bababa;
     }
+  }
+
+  &__svg {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 25px;
+    color: #159281;
+    cursor: pointer;
   }
 }
 

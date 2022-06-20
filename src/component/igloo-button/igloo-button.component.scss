@@ -1,30 +1,35 @@
 .igloo-button {
   display: block;
-  background: #DADADA;
+  background: #dadada;
   padding: 12px 22px;
   font-size: 15px;
   border-radius: 100px;
   text-transform: uppercase;
   color: #555555;
-  border: 2px solid #DADADA;
+  border: 2px solid #dadada;
   cursor: pointer;
   transition: all 0.2s linear 0s;
   outline: none;
 
   &--green {
-    background-color: #00C99D;
-    border: 2px solid #00C99D;
-    color: #FFFFFF;
+    background-color: #00c99d;
+    border: 2px solid #00c99d;
+    color: #ffffff;
   }
   &--dark-green {
     background-color: #159281;
     border: 2px solid #159281;
-    color: #FFFFFF;
-    transition: all .3s linear;
+    color: #ffffff;
+    transition: all 0.3s linear;
   }
   &--dark-green:hover {
-    background-color: #13867B;
-    border-color: #13867B;
+    background-color: #13867b;
+    border-color: #13867b;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
   }
 }
 

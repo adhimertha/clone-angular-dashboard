@@ -174,6 +174,10 @@ input::placeholder {
   display: inline-block;
 }
 
+.relative {
+  position: relative;
+}
+
 // setting media query
 // sm
 @media only screen and (min-width: 640px) {
