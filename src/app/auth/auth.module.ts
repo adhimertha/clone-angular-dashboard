@@ -3,11 +3,18 @@ import { CommonModule } from "@angular/common";
 import { LoginPage } from "./login/login.page";
 import { ShareModule } from "../share.module";
 import { RouterModule, Routes } from "@angular/router";
+import { AuthLayoutComponent } from "../layout/auth-layout/auth-layout.component";
 
 export const routes: Routes = [
   {
-    path: "login",
-    component: LoginPage,
+    path: "",
+    component: AuthLayoutComponent,
+    children: [
+      {
+        path: "login",
+        component: LoginPage,
+      },
+    ],
   },
 ];
 

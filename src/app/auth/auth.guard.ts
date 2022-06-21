@@ -36,7 +36,7 @@ export class AuthGuard implements CanActivate {
 
         if (!!!access_token) {
           console.log("AuthGuard: user not logged in LOCAL STORAGE");
-          location.assign("/login");
+          this.router.navigate(["/login"]);
           return false;
         }
       }
