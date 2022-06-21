@@ -42,18 +42,13 @@ export class LoginFormComponent implements OnInit {
   constructor(public util?: UtilService) {}
 
   ngOnInit(): void {
-    console.log("init");
-
     this.loginButtonTextState = this.loginButtonText;
   }
 
   ngOnChanges(changes: any) {
-    console.log(changes);
     if (!!changes.isLoading) {
       this.isLoading = changes.isLoading.currentValue;
       if (!this.isLoading) {
-        console.log("login form is not loading");
-
         this.ngOnInit();
       }
     }

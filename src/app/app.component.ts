@@ -1,5 +1,7 @@
 import { Component, HostListener } from "@angular/core";
 import { NavigationEnd, NavigationStart, Router } from "@angular/router";
+import { Store } from "@ngxs/store";
+import { Logout } from "./auth/auth.actions";
 import { SideMenu } from "./interfaces";
 import { UtilService } from "./util.service";
 
@@ -29,10 +31,15 @@ export class AppComponent {
     this.hideMenuController();
   }
 
-  constructor(public util: UtilService, private router: Router) {
+  constructor(
+    public util: UtilService,
+    private router: Router,
+    private store: Store
+  ) {
     this.initializeApp();
-    this.checkAuth();
     this.urlCondition();
+
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
 
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
@@ -52,8 +59,34 @@ export class AppComponent {
         } else {
           this.isAuth = true;
         }
+
+        // let access_token: string = JSON.parse(
+        //   localStorage.getItem("auth")
+        // )?.access_token;
+
+        // if (!!!access_token) {
+        //   this.isAuth = false;
+        // } else {
+        //   this.isAuth = true;
+        // }
       }
     });
+  }
+
+  ngOnInit() {
+    // let access_token: string = JSON.parse(
+    //   localStorage.getItem("auth")
+    // )?.access_token;
+
+    // if (
+    //   !!!access_token &&
+    //   this.router.url !== "/login" &&
+    //   this.router.url !== "/"
+    // ) {
+    //   location.assign("/login");
+    //   return;
+    // }
+    this.checkAuth();
   }
 
   initializeApp() {
@@ -135,5 +168,14 @@ export class AppComponent {
     }
     this.activeUrl = "/" + this.currentUrlAddr.split("/")[1];
     console.log(this.activeUrl == "/overview");
+  }
+
+  logout() {
+    let isConfirm = confirm("Are you sure you want to logout?");
+
+    if (isConfirm) {
+      this.store.dispatch(new Logout());
+      this.router.navigate(["/login"]);
+    }
   }
 }
