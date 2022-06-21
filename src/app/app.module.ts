@@ -11,6 +11,8 @@ import { AuthState } from "./auth/auth.state";
 import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
 import { HttpClient, HttpClientModule } from "@angular/common/http";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
+import { LoadingBarRouterModule } from "@ngx-loading-bar/router";
+import { LoadingBarModule } from "@ngx-loading-bar/core";
 
 export function HttpLoaderFactory(http: HttpClient) {
   const dateUnixTimestamp = new Date().getTime();
@@ -30,6 +32,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     ShareModule,
     RouterModule,
     NgxsModule.forRoot([AuthState]),
+
+    // Loading bar module
+    LoadingBarRouterModule,
+    LoadingBarModule,
 
     HttpClientModule,
     TranslateModule.forRoot({

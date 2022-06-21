@@ -150,11 +150,25 @@ input::placeholder {
 }
 
 .content-title {
-  margin-top: 30px;
+  margin-top: 25px;
   margin-bottom: 25px;
   font-size: 40px;
   color: #1f1f1f;
-  line-height: 1.2;
+}
+
+.padding-content {
+  padding: 0 4.5%;
+}
+
+.flex-content-button {
+  display: flex !important;
+  align-items: center;
+  gap: 5px;
+}
+.justify-end {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 @for $i from 1 through 60 {

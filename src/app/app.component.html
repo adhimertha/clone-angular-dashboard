@@ -1,6 +1,13 @@
 <div *ngIf="!isAuth; else dashboard">
   <router-outlet></router-outlet>
 </div>
+
+<ngx-loading-bar
+  [includeSpinner]="false"
+  height="4px"
+  color="#159281"
+></ngx-loading-bar>
+
 <ng-template #dashboard>
   <!-- header -->
   <div class="header">
@@ -79,6 +86,7 @@
             activeUrl == '/overview' ? 'sidebar__menu-link--active' : ''
           "
           [routerLink]="'overview'"
+          (click)="isSidebarOpen = false"
           class="sidebar__menu-link text-bold"
         >
           Overview
@@ -88,6 +96,7 @@
             activeUrl == '/department' ? 'sidebar__menu-link--active' : ''
           "
           [routerLink]="'department'"
+          (click)="isSidebarOpen = false"
           class="sidebar__menu-link text-bold"
         >
           Departments

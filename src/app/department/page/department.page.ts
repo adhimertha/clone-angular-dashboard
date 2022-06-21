@@ -1,5 +1,6 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, HostListener, OnInit } from "@angular/core";
 import { Breadcrumb } from "src/app/interfaces";
+import { UtilService } from "src/app/util.service";
 
 @Component({
   selector: "app-department",
@@ -9,7 +10,7 @@ import { Breadcrumb } from "src/app/interfaces";
 export class DepartmentPage implements OnInit {
   public breadcrumbData: Breadcrumb;
 
-  constructor() {
+  constructor(public util: UtilService) {
     this.setBreadcrumbData();
   }
 

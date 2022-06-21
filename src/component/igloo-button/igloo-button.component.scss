@@ -11,10 +11,16 @@
   transition: all 0.2s linear 0s;
   outline: none;
 
+  // color
   &--green {
     background-color: #00c99d;
     border: 2px solid #00c99d;
     color: #ffffff;
+  }
+  &--white {
+    background-color: #fff;
+    border: 1px solid #159281;
+    color: #159281;
   }
   &--dark-green {
     background-color: #159281;
@@ -26,10 +32,19 @@
     background-color: #13867b;
     border-color: #13867b;
   }
+  &--white:hover {
+    background-color: #fff;
+    border-color: #13867b;
+  }
 
   &:disabled {
     opacity: 0.4;
     cursor: not-allowed;
+  }
+
+  // size
+  &--small {
+    padding: 7px 20px;
   }
 }
 
@@ -55,4 +70,8 @@
   .igloo-button--w-#{$var}px {
     width: #{$var}px;
   }
+}
+
+button:hover {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 2px 3px rgba(0, 0, 0, 0.24);
 }
