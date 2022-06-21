@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
+import { Store } from "@ngxs/store";
+import { Login } from "../auth.actions";
 
 @Component({
   selector: "app-login",
@@ -12,9 +14,17 @@ export class LoginPage implements OnInit {
   public defaultCompanyId = "";
   public isLoading = false;
 
-  constructor(private route: Router) {}
+  constructor(private route: Router, private store: Store) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    let access_token: string = JSON.parse(
+      localStorage.getItem("auth")
+    )?.access_token;
+
+    if (!!access_token) {
+      location.assign("/overview");
+    }
+  }
 
   submit(e: CustomEvent) {
     this.isLoading = true;
@@ -33,15 +43,9 @@ export class LoginPage implements OnInit {
       data.companyId.toLowerCase()
     );
 
-    // generate fake token
-    const rand = () => Math.random().toString(36).substr(2);
-
-    const dataStore = JSON.stringify({
-      access_token: rand() + rand() + rand() + rand() + rand() + rand(),
-      username: data.username,
-      companyId: data.companyId,
-    });
-    localStorage.setItem("auth", dataStore);
+    this.store.dispatch(
+      new Login(data.username, data.password, data.companyId)
+    );
 
     setTimeout(() => {
       this.isLoading = false;

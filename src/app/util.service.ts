@@ -10,6 +10,8 @@ export class UtilService {
   maxInputEmailLength = "128";
   maxInputEmailLengthInt = 128;
 
+  listenerFunction = [];
+
   nameWithSpecialCharXRegexp = xregexp("^[\\pL\\'\\.0-9\\-\\_\\#\\!]+$");
 
   constructor(private translate?: TranslateService, private router?: Router) {}

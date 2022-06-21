@@ -1,4 +1,4 @@
-<div *ngIf="!isAuth; else dashboard">
+<div *ngIf="!isAuth">
   <router-outlet></router-outlet>
 </div>
 
@@ -8,7 +8,7 @@
   color="#159281"
 ></ngx-loading-bar>
 
-<ng-template #dashboard>
+<div *ngIf="isAuth">
   <!-- header -->
   <div class="header">
     <div class="header__brand">
@@ -149,7 +149,9 @@
           </div>
         </div>
         <div class="sidebar__menu-link text-bold">Support</div>
-        <div class="sidebar__menu-link text-bold">Log Out</div>
+        <div class="sidebar__menu-link text-bold" (click)="logout()">
+          Log Out
+        </div>
       </div>
       <!-- sidebar version -->
       <div class="sidebar__version">V1.4.7</div>
@@ -185,7 +187,7 @@
       <router-outlet></router-outlet>
     </div>
   </div>
-</ng-template>
+</div>
 
 <div *ngIf="componentId === 'local'" class="top-info">
   <div class="top-info__content">

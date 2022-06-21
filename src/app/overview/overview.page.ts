@@ -21,5 +21,7 @@ export class OverviewPage implements OnInit {
     };
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log("overview page init");
+  }
 }
