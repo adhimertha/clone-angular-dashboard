@@ -14,7 +14,9 @@ export class LoginPage implements OnInit {
   public defaultCompanyId = "";
   public isLoading = false;
 
-  constructor(private route: Router, private store: Store) {}
+  constructor(private router: Router, private store: Store) {
+    this.ngOnInit();
+  }
 
   ngOnInit() {
     let access_token: string = JSON.parse(
@@ -22,7 +24,7 @@ export class LoginPage implements OnInit {
     )?.access_token;
 
     if (!!access_token) {
-      location.assign("/overview");
+      this.router.navigate(["/overview"]);
     }
   }
 
@@ -48,8 +50,8 @@ export class LoginPage implements OnInit {
     );
 
     setTimeout(() => {
+      this.router.navigate(["/overview"]);
       this.isLoading = false;
-      this.route.navigate(["/overview"]);
     }, 500);
   }
 }

@@ -160,6 +160,13 @@ input::placeholder {
   padding: 0 4.5%;
 }
 
+.flex {
+  display: flex;
+}
+.items-center {
+  align-items: center;
+}
+
 .flex-content-button {
   display: flex !important;
   align-items: center;
@@ -201,6 +208,9 @@ input::placeholder {
 @for $i from 1 through 60 {
   .margin-top-#{$i}px {
     margin-top: #{$i + "px"};
+  }
+  .gap-#{$i}px {
+    gap: #{$i + "px"};
   }
 }
 @for $i from 1 through 60 {

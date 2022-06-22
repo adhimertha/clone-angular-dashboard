@@ -7,9 +7,11 @@ import { BreadcrumbComponent } from "src/component/breadcrumb/breadcrumb.compone
 import { RouterModule } from "@angular/router";
 import { LoginFormComponent } from "src/component/login-form/login-form.component";
 import { DepartmentsTableComponent } from "src/component/departments-table/departments-table.component";
+import { FormsModule } from "@angular/forms";
+import { IglooInputSearchComponent } from "src/component/igloo-input-search/igloo-input-search.component";
 
 @NgModule({
-  imports: [RouterModule, CommonModule],
+  imports: [RouterModule, CommonModule, FormsModule],
   declarations: [
     IglooUiComponent,
     IglooSelectLangComponent,
@@ -17,6 +19,7 @@ import { DepartmentsTableComponent } from "src/component/departments-table/depar
     BreadcrumbComponent,
     LoginFormComponent,
     DepartmentsTableComponent,
+    IglooInputSearchComponent,
   ],
   exports: [
     IglooUiComponent,
@@ -25,6 +28,7 @@ import { DepartmentsTableComponent } from "src/component/departments-table/depar
     BreadcrumbComponent,
     LoginFormComponent,
     DepartmentsTableComponent,
+    IglooInputSearchComponent,
   ],
 })
 export class ShareModule {}
