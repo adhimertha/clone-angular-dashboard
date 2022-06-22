@@ -32,4 +32,8 @@ export class UtilService {
   ctypeSpace(input: string = "") {
     return input.replace(/\s/g, "").length > 0;
   }
+
+  optimizePerPage(rowHeight: any) {
+    return Math.ceil(window.innerHeight / rowHeight);
+  }
 }

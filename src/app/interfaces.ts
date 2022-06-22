@@ -27,3 +27,28 @@ export interface BreadcrumbList {
 export interface Breadcrumb extends BreadcrumbList {
   parents?: BreadcrumbList[];
 }
+
+export interface FindDepartmentResponse {
+  name: string;
+  numberOfUsers?: string | Number;
+  numberOfProperties?: string | Number;
+  listings: {
+    _id: string; // listingRef
+    name: string;
+    country: string;
+  }[];
+}
+
+export interface DepartmentDetail {
+  _id?: string;
+  name?: string;
+  usersRef?: Number;
+  listingsRef?: FindDepartmentResponse[];
+}
+
+export interface Department {
+  _id: string;
+  name: string;
+  numberOfUsers: number;
+  numberOfProperties: number;
+}

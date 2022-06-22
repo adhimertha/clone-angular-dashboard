@@ -1,6 +1,8 @@
-import { Component, HostListener, OnInit } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
+import { FindOptions } from "@igloohomeco/types";
 import { Breadcrumb } from "src/app/interfaces";
 import { UtilService } from "src/app/util.service";
+import { Store } from "@ngxs/store";
 
 @Component({
   selector: "app-department",
@@ -10,7 +12,7 @@ import { UtilService } from "src/app/util.service";
 export class DepartmentPage implements OnInit {
   public breadcrumbData: Breadcrumb;
 
-  constructor(public util: UtilService) {
+  constructor(public util: UtilService, private store: Store) {
     this.setBreadcrumbData();
   }
 

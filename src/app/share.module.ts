@@ -6,6 +6,7 @@ import { IglooButtonComponent } from "src/component/igloo-button/igloo-button.co
 import { BreadcrumbComponent } from "src/component/breadcrumb/breadcrumb.component";
 import { RouterModule } from "@angular/router";
 import { LoginFormComponent } from "src/component/login-form/login-form.component";
+import { DepartmentsTableComponent } from "src/component/departments-table/departments-table.component";
 
 @NgModule({
   imports: [RouterModule, CommonModule],
@@ -15,6 +16,7 @@ import { LoginFormComponent } from "src/component/login-form/login-form.componen
     IglooButtonComponent,
     BreadcrumbComponent,
     LoginFormComponent,
+    DepartmentsTableComponent,
   ],
   exports: [
     IglooUiComponent,
@@ -22,6 +24,7 @@ import { LoginFormComponent } from "src/component/login-form/login-form.componen
     IglooButtonComponent,
     BreadcrumbComponent,
     LoginFormComponent,
+    DepartmentsTableComponent,
   ],
 })
 export class ShareModule {}
