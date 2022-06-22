@@ -1,0 +1,99 @@
+<div class="padding-content margin-top-25px">
+  <!-- breadcrumb -->
+  <app-breadcrumb [data]="breadcrumbData"></app-breadcrumb>
+</div>
+
+<!-- content header -->
+<div class="header-wrapper padding-content">
+  <div class="content-header">
+    <!-- title -->
+    <div class="content-title">
+      <div class="text-bold">{{util.translating('Properties')}}</div>
+    </div>
+
+    <div class="flex items-center gap-15px">
+      <!-- create button -->
+      <app-igloo-button
+        type="submit"
+        id="loginButton"
+        color="dark-green"
+        display="block"
+        class="text-bold"
+        color="white"
+      >
+        {{util.translating('Create Multiple Access')}}
+      </app-igloo-button>
+
+      <!-- create button -->
+      <app-igloo-button
+        type="submit"
+        id="loginButton"
+        color="dark-green"
+        display="block"
+        class="text-bold"
+      >
+        {{util.translating('Add Property')}}
+      </app-igloo-button>
+    </div>
+  </div>
+
+  <div class="justify-end flex items-center gap-15px">
+    <app-igloo-input-search></app-igloo-input-search>
+
+    <app-igloo-button
+      type="submit"
+      id="loginButton"
+      color="white"
+      display="block"
+      class="text-bold flex-content-button"
+    >
+      <div class="icon-file">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+        >
+          <path fill="none" d="M0 0h24v24H0z" />
+          <path
+            d="M13.2 12l2.8 4h-2.4L12 13.714 10.4 16H8l2.8-4L8 8h2.4l1.6 2.286L13.6 8H15V4H5v16h14V8h-3l-2.8 4zM3 2.992C3 2.444 3.447 2 3.999 2H16l5 5v13.993A1 1 0 0 1 20.007 22H3.993A1 1 0 0 1 3 21.008V2.992z"
+          />
+        </svg>
+      </div>
+      {{util.translating('Export')}}
+    </app-igloo-button>
+  </div>
+</div>
+
+<div class="padding-content margin-top-25px">
+  <div class="table-wrapper relative">
+    <table class="table">
+      <thead class="table__head">
+        <tr class="table-row table__head--sticky text-bold">
+          <th class="table__head-col">Property Name</th>
+          <th class="table__head-col">Location</th>
+          <th class="table__head-col table--action-padding"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let index of numbers" class="table-row">
+          <td class="table__body-col">
+            !##Test Lock Have On Department And Two Locks
+          </td>
+          <td class="table__body-col">Indonesia</td>
+          <td class="table__body-col table--action-padding">
+            <!-- view button -->
+            <app-igloo-button
+              type="submit"
+              id="loginButton"
+              color="white"
+              display="block"
+              class="text-bold igloo-button--small"
+            >
+              {{util.translating('View Property')}}
+            </app-igloo-button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -6,6 +6,11 @@ import { MainLayoutComponent } from "./layout/main-layout/main-layout.component"
 const routes: Routes = [
   {
     path: "",
+    redirectTo: "/overview",
+    pathMatch: "full",
+  },
+  {
+    path: "",
     component: MainLayoutComponent,
     children: [
       {
@@ -18,7 +23,16 @@ const routes: Routes = [
         loadChildren: "./department/department.module#DepartmentPageModule",
         canActivate: [AuthGuard],
       },
+      {
+        path: "property",
+        loadChildren: "./property/property.module#PropertyPageModule",
+        canActivate: [AuthGuard],
+      },
     ],
+  },
+  {
+    path: "**",
+    redirectTo: "/login",
   },
 ];
 

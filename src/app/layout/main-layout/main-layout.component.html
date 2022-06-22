@@ -91,7 +91,16 @@
         >
           Departments
         </div>
-        <div class="sidebar__menu-link text-bold">Properties</div>
+        <div
+          [ngClass]="
+            activeUrl == '/property' ? 'sidebar__menu-link--active' : ''
+          "
+          [routerLink]="['/property']"
+          (click)="isSidebarOpen = false"
+          class="sidebar__menu-link text-bold"
+        >
+          Properties
+        </div>
         <div class="sidebar__menu-link text-bold">Map</div>
         <div class="sidebar__menu-link text-bold">Access</div>
         <div class="sidebar__menu-link text-bold">Users</div>
