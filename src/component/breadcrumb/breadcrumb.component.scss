@@ -6,6 +6,10 @@
     color: #039c7b;
     font-size: 14px;
     cursor: pointer;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 200px;
+    text-overflow: ellipsis;
 
     &:hover {
       text-decoration: underline;

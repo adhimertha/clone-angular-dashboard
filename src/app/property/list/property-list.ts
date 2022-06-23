@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, HostListener, OnInit } from "@angular/core";
 import { Breadcrumb } from "src/app/interfaces";
 import { UtilService } from "src/app/util.service";
 
@@ -15,6 +15,11 @@ export class PropertyListPage implements OnInit {
     this.numbers = Array(5).map((x, i) => i); // [0,1,2,3,4]
 
     this.setBreadcrumbData();
+  }
+
+  @HostListener("document:scroll", ["$event"])
+  onElementScroll($event: any) {
+    console.log($event);
   }
 
   ngOnInit(): void {}

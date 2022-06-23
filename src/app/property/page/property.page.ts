@@ -28,8 +28,8 @@ export class PropertyPage implements OnInit {
           url: "/property",
         },
       ],
-      title: "Test Property",
-      url: "/property/2",
+      title: "!##Test Lock Have On Department And Two Locks",
+      url: "/property/2neVfuzRPGU9tqXze",
     };
   }
 }
