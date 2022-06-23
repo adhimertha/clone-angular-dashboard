@@ -1,4 +1,10 @@
-import { Component, Input, OnChanges, OnInit } from "@angular/core";
+import {
+  Component,
+  HostListener,
+  Input,
+  OnChanges,
+  OnInit,
+} from "@angular/core";
 import { UtilService } from "src/app/util.service";
 
 @Component({
