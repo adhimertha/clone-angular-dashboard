@@ -21,6 +21,7 @@ export class DepartmentListPage implements OnInit, OnDestroy {
   public breadcrumbData: Breadcrumb;
   public loadingText = this.util.translating("Loading_data");
   public departmentListInfinityScrollDisabled: boolean;
+  public isCloneHeader = true;
 
   constructor(public util: UtilService, public store: Store) {
     this.setBreadcrumbData();
@@ -51,5 +52,37 @@ export class DepartmentListPage implements OnInit, OnDestroy {
   getDataStateDepartmentActive() {
     // run getDepartmentLIst to get data from API
     console.log("sukses");
+  }
+
+  onScroll(
+    event: any,
+    headerContent: any,
+    cloneHeaderTable: any,
+    tableComponent: any
+  ) {
+    const cloneElement = document
+      .getElementById("tableElements")
+      .cloneNode(true);
+    if (this.isCloneHeader) {
+      console.log(cloneElement);
+      cloneHeaderTable.appendChild(cloneElement);
+      let tbody = document
+        .getElementById("cloneHeader")
+        .getElementsByTagName("tbody")[0];
+      tbody.style.display = "none";
+
+      this.isCloneHeader = false;
+    }
+
+    cloneHeaderTable.style.top = `${headerContent.scrollHeight}px`;
+
+    if (event.srcElement.scrollTop > headerContent.scrollHeight) {
+      cloneHeaderTable.style.display = "block";
+    } else {
+      cloneHeaderTable.style.display = "none";
+    }
+    if (event.srcElement.scrollTop > tableComponent.scrollHeight) {
+      cloneHeaderTable.style.display = "none";
+    }
   }
 }
