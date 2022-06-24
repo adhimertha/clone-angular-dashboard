@@ -184,14 +184,33 @@ input::placeholder {
   top: 0;
   background-color: #f7f4f0;
   padding-bottom: 25px;
+  margin-top: 20px;
   border-bottom: 1px solid #e6e6e6;
   z-index: 2;
+
+  // icon dowload header page include table
+  .icon-download {
+    width: 20px;
+    height: 20px;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
 }
 .content {
   &-header {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 20px;
+
+    // sm
+    @media only screen and (min-width: 640px) {
+      margin-bottom: 0px;
+    }
 
     &__icon {
       width: 20px;
@@ -212,69 +231,7 @@ input::placeholder {
   overflow-y: auto;
 }
 
-.table {
-  box-sizing: border-box;
-  border-collapse: collapse;
-  border-radius: 10px;
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  table-layout: fixed;
-  color: #1f1f1f;
-  min-width: 650px !important;
-
-  &-wrapper {
-    overflow: auto;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 30%);
-    max-width: 100%;
-  }
-
-  &-row {
-    background-color: #f8f8f8;
-    border-bottom: 1px solid #ddd;
-    padding: 0.35em;
-  }
-  &__head-col {
-    font-size: 0.85em;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    text-align: left;
-    background-color: #f3fafe !important;
-    color: #6e6e6e;
-  }
-  &__head-col,
-  &__body-col {
-    padding-left: 35px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    text-align: left;
-
-    &:last-child {
-      padding-left: 0px;
-      padding-right: 35px;
-    }
-  }
-  &__body-col {
-    &:last-child {
-      border-bottom: 0;
-    }
-  }
-  &--action-padding {
-    width: 100px;
-    max-width: 100px;
-    text-align: center;
-    align-items: center;
-    padding-left: 35px !important;
-  }
-  &--small-width {
-    width: 100px !important;
-    max-width: 100px !important;
-    padding-left: 35px !important;
-  }
-}
-
+// for clone header table
 .clone-header-table {
   display: none;
   position: absolute;
@@ -303,8 +260,13 @@ input::placeholder {
     box-shadow: none;
     overflow: hidden;
   }
+
+  .table {
+    border-radius: 0;
+  }
 }
 
+// table
 .table {
   box-sizing: border-box;
   border-collapse: collapse;
@@ -325,9 +287,25 @@ input::placeholder {
   }
 
   &-row {
-    background-color: #f8f8f8;
-    border-bottom: 1px solid #ddd;
+    position: relative;
+    background-color: #fff;
     padding: 0.35em;
+
+    &__body {
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+
+      &:hover {
+        border-bottom: 2px solid #ddd;
+      }
+    }
+
+    &:nth-child(even) {
+      background-color: #fff;
+    }
+    &:nth-child(even) {
+      background-color: #f6f7f5;
+    }
   }
   &__head-col {
     font-size: 0.85em;
@@ -335,6 +313,7 @@ input::placeholder {
     text-transform: uppercase;
     text-align: left;
     background-color: #f3fafe !important;
+    border-bottom: 1px solid #ddd;
     color: #6e6e6e;
   }
   &__head-col,
@@ -371,6 +350,15 @@ input::placeholder {
 @for $i from 1 through 60 {
   .margin-top-#{$i}px {
     margin-top: #{$i + "px"};
+  }
+  .margin-bottom-#{$i}px {
+    margin-bottom: #{$i + "px"};
+  }
+  .padding-top-#{$i}px {
+    padding-top: #{$i + "px"};
+  }
+  .padding-bottom-#{$i}px {
+    padding-bottom: #{$i + "px"};
   }
   .gap-#{$i}px {
     gap: #{$i + "px"};

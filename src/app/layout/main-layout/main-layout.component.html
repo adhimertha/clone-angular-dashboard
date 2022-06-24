@@ -70,79 +70,72 @@
     </div>
     <!-- sidebar menu -->
     <div class="sidebar__menu custom-scrollbar">
-      <div
-        [ngClass]="activeUrl == '/overview' ? 'sidebar__menu-link--active' : ''"
-        [routerLink]="['/overview']"
-        (click)="isSidebarOpen = false"
-        class="sidebar__menu-link text-bold"
-      >
-        Overview
-      </div>
-      <div
-        [ngClass]="
-          activeUrl == '/department' ? 'sidebar__menu-link--active' : ''
-        "
-        [routerLink]="['/department']"
-        (click)="isSidebarOpen = false"
-        class="sidebar__menu-link text-bold"
-      >
-        Departments
-      </div>
-      <div
-        [ngClass]="activeUrl == '/property' ? 'sidebar__menu-link--active' : ''"
-        [routerLink]="['/property']"
-        (click)="isSidebarOpen = false"
-        class="sidebar__menu-link text-bold"
-      >
-        Properties
-      </div>
-      <div class="sidebar__menu-link text-bold">Map</div>
-      <div class="sidebar__menu-link text-bold">Access</div>
-      <div class="sidebar__menu-link text-bold">Users</div>
-      <div class="sidebar__menu-link text-bold">Jobs List</div>
-      <div class="sidebar__menu-link text-bold">My Profile</div>
-      <div
-        (click)="appPages[0].open = !appPages[0].open"
-        class="sidebar__menu-link text-bold"
-      >
-        {{ appPages[0].title }}
-        <div class="sidebar__menu-toggle">
-          <svg
-            *ngIf="appPages[0].open === false"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-              clip-rule="evenodd"
-            />
-          </svg>
-          <svg
-            *ngIf="appPages[0].open === true"
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-5 w-5"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"
-              clip-rule="evenodd"
-            />
-          </svg>
-        </div>
-      </div>
-      <div *ngIf="appPages[0].open === true" class="sidebar__menu-dropdown">
+      <ng-container *ngFor="let page of appPages">
+        <!-- if page don't have children -->
         <div
-          *ngFor="let p of appPages[0].children; let i = index"
-          class="sidebar__menu-link text-bold sidebar__menu-link--child"
+          *ngIf="!page.children"
+          [ngClass]="activeUrl == page.url ? 'sidebar__menu-link--active' : ''"
+          [routerLink]="[page.url]"
+          (click)="isSidebarOpen = false"
+          class="sidebar__menu-link text-bold"
         >
-          {{ p.title }}
+          {{ page.title }}
         </div>
-      </div>
-      <div class="sidebar__menu-link text-bold">Support</div>
+
+        <!-- if page have children -->
+        <div
+          *ngIf="page.children"
+          (click)="page.open = !page.open"
+          class="sidebar__menu-link text-bold"
+        >
+          {{ page.title }}
+          <div class="sidebar__menu-toggle">
+            <svg
+              *ngIf="page.open === false"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            <svg
+              *ngIf="page.open === true"
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </div>
+        </div>
+        <div
+          *ngIf="page.children && page.open === true"
+          class="sidebar__menu-dropdown"
+        >
+          <ng-container *ngFor="let p of page.children; let i = index">
+            <div
+              [ngClass]="
+                activeUrl == page.url ? 'sidebar__menu-link--active' : ''
+              "
+              [routerLink]="[page.url]"
+              (click)="isSidebarOpen = false"
+              class="sidebar__menu-link text-bold sidebar__menu-link--child"
+            >
+              {{ p.title }}
+            </div>
+          </ng-container>
+        </div>
+      </ng-container>
+      <!-- <div class="sidebar__menu-link text-bold">Support</div> -->
       <div class="sidebar__menu-link text-bold" (click)="logout()">Log Out</div>
     </div>
     <!-- sidebar version -->

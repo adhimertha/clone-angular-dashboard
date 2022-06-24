@@ -35,7 +35,7 @@
         display="block"
         class="text-bold flex-content-button"
       >
-        <div class="icon-file">
+        <div class="icon-download">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -52,25 +52,12 @@
     </div>
   </div>
 
-  <div class="padding-content margin-top-25px relative" #tableComponent>
+  <div
+    class="padding-content margin-top-25px margin-bottom-25px relative"
+    #tableComponent
+  >
     <app-departments-table
-      id="departmentListActive"
       (onScrollTableEvent)="onScrollTable($event)"
-      *ngIf="(loadingDepartmentList || dataDepartment.length > 0)"
-      [labelProperty]="util.translating('Properties')"
-      [labelManager]="util.translating('Managers')"
-      [labelStatus]="util.translating('lock.Status')"
-      [inputData]="dataDepartment"
-      (showHideRow)="showHideRow($event)"
-      (buttonAction)="redirect($event)"
-      [isInProgress]="loadingDepartmentList"
-      [loadMoreTitle]="loadingText"
-      [infiniteScrollDisabled]="departmentListInfinityScrollDisabled"
-      [colDeptNameLabel]="util.translating('Departments_Name')"
-      [colNumOfPropertiesLabel]="util.translating('Number_of_Properties')"
-      [colNumOfManagerLabel]="util.translating('Number_of_Manager')"
-      [buttonTitle]="util.translating('View')"
-      [hideCol]="hideCol"
     ></app-departments-table>
   </div>
 
