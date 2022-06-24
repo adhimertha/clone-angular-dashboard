@@ -9,6 +9,8 @@ import { LoginFormComponent } from "src/component/login-form/login-form.componen
 import { DepartmentsTableComponent } from "src/component/departments-table/departments-table.component";
 import { FormsModule } from "@angular/forms";
 import { IglooInputSearchComponent } from "src/component/igloo-input-search/igloo-input-search.component";
+import { PropertyTableComponent } from "src/component/property-table/property-table.component";
+import { ReservationPropertyTableComponent } from "src/component/reservation-property-table/reservation-property-table.component";
 
 @NgModule({
   imports: [RouterModule, CommonModule, FormsModule],
@@ -19,6 +21,8 @@ import { IglooInputSearchComponent } from "src/component/igloo-input-search/iglo
     BreadcrumbComponent,
     LoginFormComponent,
     DepartmentsTableComponent,
+    PropertyTableComponent,
+    ReservationPropertyTableComponent,
     IglooInputSearchComponent,
   ],
   exports: [
@@ -28,6 +32,8 @@ import { IglooInputSearchComponent } from "src/component/igloo-input-search/iglo
     BreadcrumbComponent,
     LoginFormComponent,
     DepartmentsTableComponent,
+    PropertyTableComponent,
+    ReservationPropertyTableComponent,
     IglooInputSearchComponent,
   ],
 })

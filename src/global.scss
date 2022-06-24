@@ -229,6 +229,8 @@ input::placeholder {
   min-height: calc(100vh - 70px);
   max-height: calc(100vh - 70px);
   overflow-y: auto;
+  overflow-x: hidden;
+  background-color: #f7f4f0;
 }
 
 // for clone header table
@@ -360,6 +362,9 @@ input::placeholder {
   .padding-bottom-#{$i}px {
     padding-bottom: #{$i + "px"};
   }
+  .margin-y-#{$i}px {
+    margin: #{$i + "px"} 0px;
+  }
   .gap-#{$i}px {
     gap: #{$i + "px"};
   }
@@ -371,8 +376,8 @@ input::placeholder {
 }
 // padding top
 @for $i from 1 through 70 {
-  .margin-top-#{$i}px {
-    margin-top: #{$i + "px"};
+  .padding-top-#{$i}px {
+    padding-top: #{$i + "px"};
   }
 }
 

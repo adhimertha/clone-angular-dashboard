@@ -1,0 +1,39 @@
+<div
+  id="tableElements"
+  class="table-wrapper relative"
+  (scroll)="onScrollTableEvent.emit($event)"
+>
+  <table class="table">
+    <thead id="headTable" class="table__head">
+      <tr class="table-row text-bold">
+        <th class="table__head-col">Property Name</th>
+        <th class="table__head-col table--small-width">Location</th>
+        <th class="table__head-col table--action"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let index of ['1', '2', '3', '4', '5', '6', '7', '8']"
+        class="table-row"
+      >
+        <td class="table__body-col">
+          !##Test Lock Have On Department And Two Locks
+        </td>
+        <td class="table__body-col">Indonesia</td>
+        <td class="table__body-col table--action">
+          <!-- view button -->
+          <app-igloo-button
+            type="button"
+            id="loginButton"
+            color="white"
+            [routerLink]="['/property/page/2neVfuzRPGU9tqXze']"
+            display="block"
+            class="text-bold igloo-button--small"
+          >
+            {{ util.translating("View Property") }}
+          </app-igloo-button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
