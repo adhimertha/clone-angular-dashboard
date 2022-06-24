@@ -9,11 +9,9 @@ import { UtilService } from "src/app/util.service";
 })
 export class PropertyListPage implements OnInit {
   public breadcrumbData: Breadcrumb;
-  public numbers: number[];
+  public isCloneHeader = true;
 
   constructor(public util: UtilService) {
-    this.numbers = Array(5).map((x, i) => i); // [0,1,2,3,4]
-
     this.setBreadcrumbData();
   }
 
@@ -39,5 +37,46 @@ export class PropertyListPage implements OnInit {
       title: "Property",
       url: "/property",
     };
+  }
+
+  onScrollTable(event: any) {
+    const cloneHeader = document
+      .getElementById("cloneHeader")
+      .getElementsByClassName("table-wrapper")[0];
+    cloneHeader.scrollLeft = event.srcElement.scrollLeft;
+  }
+
+  onScroll(
+    event: any,
+    headerContent: any,
+    cloneHeaderTable: any,
+    tableComponent: any
+  ) {
+    console.log("ok");
+
+    const cloneElement = document
+      .getElementById("tableElements")
+      .cloneNode(true);
+    if (this.isCloneHeader) {
+      console.log(cloneElement);
+      cloneHeaderTable.appendChild(cloneElement);
+      let tbody = document
+        .getElementById("cloneHeader")
+        .getElementsByTagName("tbody")[0];
+      tbody.style.display = "none";
+
+      this.isCloneHeader = false;
+    }
+
+    cloneHeaderTable.style.top = `${headerContent.scrollHeight}px`;
+
+    if (event.srcElement.scrollTop > headerContent.scrollHeight) {
+      cloneHeaderTable.style.display = "block";
+    } else {
+      cloneHeaderTable.style.display = "none";
+    }
+    if (event.srcElement.scrollTop > tableComponent.scrollHeight) {
+      cloneHeaderTable.style.display = "none";
+    }
   }
 }

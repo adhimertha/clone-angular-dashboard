@@ -9,6 +9,7 @@ import { UtilService } from "src/app/util.service";
 })
 export class PropertyPage implements OnInit {
   public breadcrumbData: Breadcrumb;
+  public isCloneHeader = true;
 
   constructor(public util: UtilService) {
     this.setBreadcrumbData();
@@ -31,5 +32,46 @@ export class PropertyPage implements OnInit {
       title: "!##Test Lock Have On Department And Two Locks",
       url: "/property/2neVfuzRPGU9tqXze",
     };
+  }
+
+  onScrollTable(event: any) {
+    const cloneHeader = document
+      .getElementById("cloneHeader")
+      .getElementsByClassName("table-wrapper")[0];
+    cloneHeader.scrollLeft = event.srcElement.scrollLeft;
+  }
+
+  onScroll(
+    event: any,
+    headerContent: any,
+    cloneHeaderTable: any,
+    tableComponent: any
+  ) {
+    console.log("ok");
+
+    const cloneElement = document
+      .getElementById("tableElements")
+      .cloneNode(true);
+    if (this.isCloneHeader) {
+      console.log(cloneElement);
+      cloneHeaderTable.appendChild(cloneElement);
+      let tbody = document
+        .getElementById("cloneHeader")
+        .getElementsByTagName("tbody")[0];
+      tbody.style.display = "none";
+
+      this.isCloneHeader = false;
+    }
+
+    cloneHeaderTable.style.top = `${headerContent.scrollHeight}px`;
+
+    if (event.srcElement.scrollTop > headerContent.scrollHeight) {
+      cloneHeaderTable.style.display = "block";
+    } else {
+      cloneHeaderTable.style.display = "none";
+    }
+    if (event.srcElement.scrollTop > tableComponent.scrollHeight) {
+      cloneHeaderTable.style.display = "none";
+    }
   }
 }
