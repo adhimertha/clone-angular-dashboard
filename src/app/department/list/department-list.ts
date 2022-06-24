@@ -54,6 +54,13 @@ export class DepartmentListPage implements OnInit, OnDestroy {
     console.log("sukses");
   }
 
+  onScrollTable(event: any) {
+    const cloneHeader = document
+      .getElementById("cloneHeader")
+      .getElementsByClassName("table-wrapper")[0];
+    cloneHeader.scrollLeft = event.srcElement.scrollLeft;
+  }
+
   onScroll(
     event: any,
     headerContent: any,

@@ -1,9 +1,10 @@
 import {
   Component,
-  HostListener,
+  EventEmitter,
   Input,
   OnChanges,
   OnInit,
+  Output,
 } from "@angular/core";
 import { UtilService } from "src/app/util.service";
 
@@ -33,6 +34,8 @@ export class DepartmentsTableComponent implements OnInit, OnChanges {
     numberOfUsers?: string;
     status?: string;
   }[];
+
+  @Output() onScrollTableEvent = new EventEmitter();
 
   constructor(public util: UtilService) {}
 

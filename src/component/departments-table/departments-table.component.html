@@ -1,4 +1,8 @@
-<div id="tableElements" class="table-wrapper relative">
+<div
+  id="tableElements"
+  class="table-wrapper relative"
+  (scroll)="onScrollTableEvent.emit($event)"
+>
   <table class="table">
     <thead id="headTable" class="table__head">
       <tr class="table-row text-bold">

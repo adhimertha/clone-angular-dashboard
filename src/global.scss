@@ -280,11 +280,28 @@ input::placeholder {
   position: absolute;
   top: 0;
   left: 4.5%;
-  right: 6.05%;
+  right: 6%;
   box-sizing: border-box;
+
+  // sm
+  @media only screen and (min-width: 640px) {
+    left: 4.5%;
+    right: 6.8%;
+  }
+  // md
+  @media only screen and (min-width: 768px) {
+    left: 4.5%;
+    right: 6.5%;
+  }
+  // lg
+  @media only screen and (min-width: 1024px) {
+    left: 4.5%;
+    right: 6.2%;
+  }
 
   .table-wrapper {
     box-shadow: none;
+    overflow: hidden;
   }
 }
 

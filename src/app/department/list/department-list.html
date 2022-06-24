@@ -55,6 +55,7 @@
   <div class="padding-content margin-top-25px relative" #tableComponent>
     <app-departments-table
       id="departmentListActive"
+      (onScrollTableEvent)="onScrollTable($event)"
       *ngIf="(loadingDepartmentList || dataDepartment.length > 0)"
       [labelProperty]="util.translating('Properties')"
       [labelManager]="util.translating('Managers')"
@@ -75,6 +76,4 @@
 
   <!-- clone header -->
   <div id="cloneHeader" class="clone-header-table" #cloneHeaderTable></div>
-
-  <div style="margin-top: 1000px"></div>
 </div>
